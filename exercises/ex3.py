@@ -35,15 +35,3 @@ print "Is it greater?", 5 > -2
 print "Is it greater or equal?", 5 >= -2
 # prints statement, false
 print "Is it less or equal?", 5 <= -2
-
-print "How much do I spend on coffee?"
-print "Calculate one (1) coffee @ $3.50 five days a week, 50 weeks a year."
-coffee = 5.00 * 3.50 * 50.00
-print coffee
-if coffee >= 100:
-    print "Damn!"
-else:
-    print "Oh, that's not bad." 
-    
-    
-print 10 % 250
