@@ -1,2 +1,2 @@
 # pynotes
-my annotated exercises and fiddlings for lpthw
+my annotated exercises and fiddlings (see experiments) for lpthw
