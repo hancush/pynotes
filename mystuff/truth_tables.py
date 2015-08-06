@@ -1,3 +1,5 @@
+# forked from https://richlearnspythonthehardway.org/exercise-27.html
+
 import random
 
 print "Truth Table quiz!" 
