@@ -27,10 +27,11 @@ elements = []
 for i in range (0, 6): # numbers first through last, excluding last
     print "Adding %d to the list" % i # item name given in for-loop can be used as variable
     elements.append(i) # add each value in range to list
+    print "Element was: %d" % i
 
 # print what we added
-for i in elements:
-    print "Element was: %d" % i
+# for i in elements:
+#    print "Element was: %d" % i
 
 # other list methods:
     # list.append(x) - add item, x, to end of list
