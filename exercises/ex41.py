@@ -1,7 +1,7 @@
 from random import sample
 
 class Quiz(object):
-    """Quiz yourself on terms entered with definitions into dictionary named terms."""
+    """Quiz yourself on terms entered with definitions into dictionary."""
     def __init__(self, terms):
         self.terms = terms
         self.keys = self.terms.keys()
