@@ -1,11 +1,10 @@
 from random import sample
 
 class Quiz(object):
-    """Quiz yourself on terms entered with definitions into dictionary."""
+    """Quiz yourself on terms entered with definitions into dictionary ."""
     def __init__(self, terms):
         self.terms = terms
         self.keys = self.terms.keys()
-        self.index = sample(xrange(0,len(self.terms)), len(self.terms))
 
     def quiz_base(self, which1, which2, which3):
         print "What's {0}?".format(which1)
@@ -16,10 +15,12 @@ class Quiz(object):
             print "Nope, it's {0}!".format(which3)
 
     def quiz_terms(self):
+        self.index = sample(xrange(0,len(self.terms)), len(self.terms))
         for x in self.index:
             self.quiz_base(self.terms[self.keys[x]], self.keys[x], self.keys[x])
 
     def quiz_defs(self):
+        self.index = sample(xrange(0,len(self.terms)), len(self.terms))
         for x in self.index:
             self.quiz_base(self.keys[x], self.terms[self.keys[x]], self.terms[self.keys[x]])
 

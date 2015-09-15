@@ -1,0 +1,16 @@
+#--INHERITANCE--#
+    # avoid multiple inheritance like the plague
+    # indicates class gets all/most traits from parent class
+        # i.e. class Foo(Bar), or "make class Foo that inherits from Bar"
+        # actions on child imply actions on parent
+        # actions on child override actions on parent
+        # actions on child alter actions on parent
+
+#--WHEN TO USE COMPOSITION V INHERITANCE--#
+avoid duplicated code: messy, inefficient
+    # inheritance: implied feat. via base class
+    # composition: modules, call functions from parallel classes
+rules:
+    # avoid multiple inheritance unless you want to spend time/energy learning software's class hierarchy and finding where attributes/functions originate
+    # use composition to package code into modules that are used in different, unrelated places and situations
+    # use inheritance for clearly related, reusable pieces of code that fit under common concept

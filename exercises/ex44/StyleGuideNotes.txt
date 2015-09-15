@@ -1,0 +1,171 @@
+#--PYTHON STYLE GUIDE NOTES--#
+(from http://bit.ly/1gmVjw4)
+
+code read more often than written
+
+  # guidelines improve readability
+  # ensure consistency
+    # first in module/function, then in project, finally according to style guide
+  # "readability counts"
+
+!! know when to be inconsistent !!
+
+  # when following rules:
+    # makes code less readable
+    # breaks surrounding code
+    # makes interdependent files incompatible with necessary older versions of python
+  # when legacy code doesn't need to be updated
+
+#--LAYOUT--#
+
+four-space indents
+
+!! use spaces, not tabs !!
+  # continued lines need hanging indent (two levels to distinguish from normal indent of next line), vertical alignment
+
+      def function(
+              arg1, arg2,
+              arg3, arg4):
+          pass
+
+  # no first-line args without vertical alignment
+  # fewer or more than four spaces may be used for hanging indents (i.e. to line up with parenthesis or square/curly brackets)
+
+max line length
+
+  # for code: 79 chars
+    # ensures ease of side-by-side viewing for review/reference
+  # for comments/strings: 72 chars
+
+  # use parentheses ("implied line continuation") rather than backslashes to continue long lines,
+    # except in circumstances where ILC is not recognized, i.e. "while" or "assert" statements
+
+blank lines
+
+  # two for top-level functions and classes
+  # one for class methods
+  # extra permissible to sep groups of related functions
+  # omitting permissible btwn groups of related one-liners
+  # one, sparingly, to sep logical sections of functions
+
+encoding
+
+!! python 2: ascii !!
+!! python 3: utf-8 !!
+
+  # use non-default encoding only in tests or when author name contains non-ascii chars
+    # \x, \u, \U, \N escapes preferred for non-ascii chars
+
+imports
+
+  # sep lines, i.e.:
+
+        import os
+        import sys
+
+    NOT:
+
+        import os, sys
+
+  # top of file
+  # preferred order (sep type by blank line):
+    # standard library
+    # related third party
+    # local app/library
+  # followed by __all__, if applicable
+  # absolute imports preferred
+    # relative imports permissible with complex packages
+    # avoid wildcard, if possible
+
+string quotes
+
+  # neither single nor double quotes preferred
+    # be consistent
+    # use other type within strings to avoid \' and \" escapes and maintain readability
+    # use double quotes in triple quote strings
+
+whitespace
+
+  # avoid excess (see odd cases, too hungry to note atm)
+
+comments
+
+  # need to agree with code (read: UPDATE THEM)
+  # complete sentences
+  # omit period if short
+  # double space between sentences in block comment
+  # don't leave obvious inline comments
+
+document strings (docstrings)
+
+  # write for all public modules, functions, classes and methods, following def lines
+
+  # examples:
+
+      def function():
+      """lorem ipsum
+
+      blah blah blah.
+      """
+
+  OR
+
+      def function():
+      """lorem ipsum smd."""
+
+    # note second triple quote on own line if multiline
+
+#--NAMING CONVENTIONS--#
+
+traditional
+
+  # b
+  # B
+  # lowercase
+  # lower_case_with_underscores
+  # UPPERCASE
+  # UPPER_CASE_WITH_UNDERSCORES
+  # CapitalizedWords
+  # mixedCase
+  # Capitalized_With_Underscores
+
+special case
+
+  # _single_leading_underscore - internal use
+  # single_trailing_underscore_ - avoid conflict w # python term, i.e. class_ = str
+  # __double_leading_underscore - name mangling (see: https://docs.python.org/2/tutorial/classes.html#private-variables-and-class-local-references
+  # __double_leading_and_trailing_underscore__ - "magic" object/attribute in user-controlled namespace (use only as documented, i.e. __init__)
+
+avoid:
+
+  # l (lowercase L) and O (uppercase O), as sometimes indistinguishable from 0/1
+
+specific conventions
+
+  # module/package - short (to avoid truncation), all lowercase, underscores ok for module but not package
+  # class - CapWords
+  # exception - CapName + Error (if error)
+  # global var - same as function
+  # function - lowercase w underscores
+  # function/method arg - self for instance methods, cls for class methods, use append underscore rather than messing up spelling or find an alternate word
+  # method name/inst var - lowercase w underscore, one leading underscore for non-public methods and vars (attributes)
+  # constant - all caps, underscores
+
+public v. internal interfaces
+
+  # declare names in public API under __all__
+    # __all__ = [] denotes no public API
+  # precede interal interfaces with single underscore
+
+#--PROGRAMMING RECOMMENDATIONS--#
+
+  # don't disadvantage other py implementations
+  # comparisons to "singletons" (i.e. None) should be done via is/is not, not equality operators
+  # use def when binding lambda expression to identifier variable
+  # something about structuring errors/except that i don't yet get
+  # use with-statement if local resource (i.e. doc open)
+  # "Either all return statements in a function should return an expression, or none of them should."
+  # str.startswith('') and str.endswith('') preferred to slicing
+  # empty sequences are False, can be used in boolean expressions
+    # don't compare boolean values, just say if boolean_value:
+  
